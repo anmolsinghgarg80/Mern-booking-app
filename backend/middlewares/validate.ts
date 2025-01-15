@@ -22,3 +22,18 @@ export const signupSchema = JOI.object({
   lastName: JOI.string(),
   
 });
+
+export const hotelvalidateSchema = JOI.object({
+
+  name: JOI.string().required(),
+  city: JOI.string().required(),
+  country: JOI.string().required(),
+  description: JOI.string().required(),
+  type: JOI.string().required(),
+  pricePerNight: JOI.number().required().messages({
+    'number.base': 'Price Per Night must be a number'
+  }),
+  facilities: JOI.array().required().messages({
+    'array.base': 'Facilities must be an array'
+  }),
+});
