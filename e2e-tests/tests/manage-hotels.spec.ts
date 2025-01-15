@@ -46,3 +46,9 @@ test("should allow user to add a hotel", async ({page}) => {
   await expect(page.getByText("Hotel Saved!")).toBeVisible();
 
 });
+
+test("should display hotels", async ({page}) => {
+  await page.goto(`${UI_URL}my-hotels`);
+
+  await expect(page.getByText("Tanda hotels")).toBeVisible();
+});
