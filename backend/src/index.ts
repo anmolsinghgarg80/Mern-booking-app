@@ -39,10 +39,10 @@ app.use("/api/my-hotels",myhotelRouter);
 app.use("/api/hotels", hotelsRouter);
 
 // Serve static files
-app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+app.use(express.static(path.join(__dirname, "../../../frontend/dist")));
 
 app.get("*", (req: Request, res: Response) => {
-  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
+  res.sendFile(path.join(__dirname, "../../../frontend/dist/index.html"));
 });
 
 app.listen(7000, () => {
