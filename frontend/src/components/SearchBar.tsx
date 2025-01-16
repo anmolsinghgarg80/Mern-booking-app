@@ -1,6 +1,7 @@
 import { useState, FormEvent } from "react";
 import { useSearchContext } from "../contexts/SearchContext"
 import { MdTravelExplore } from "react-icons/md";
+import { SlCalender } from "react-icons/sl";
 import DatePicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from "react-router-dom";
@@ -42,9 +43,9 @@ const SearchBar = () => {
   maxDate.setFullYear(maxDate.getFullYear() + 1);
 
   return (
-    <form className="-mt-8 p-3 bg-orange-400 rounded shadow-xl
-      grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4">
-      <div className="flex flex-row items-center flex-1 bg-white p-2">
+    <form className="-mt-8 p-3 bg-orange-400 rounded-xl shadow-xl
+      grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4">
+      <div className="flex flex-row rounded-3xl items-center flex-1 bg-white p-2">
         <MdTravelExplore size={25} className="mr-2" />
         <input 
           placeholder="Where are you going"
@@ -54,7 +55,7 @@ const SearchBar = () => {
         />
       </div>
 
-      <div className="flex bg-white px-2 py-1 gap-2">
+      <div className="flex bg-white rounded-3xl px-4 py-1 gap-2">
         <label className="items-center flex">
           Adults:
           <input
@@ -79,11 +80,12 @@ const SearchBar = () => {
         </label>
       </div>
 
-      <div className="flex bg-white items-center">
-        <p className="font-semibold px-3">CheckIn: </p>
+      <div className="flex bg-white rounded-3xl items-center">
+        <p className="font-semibold px-2">CheckIn: </p>
+        <SlCalender className="text-xl" />
         <DatePicker 
           selected={checkIn}
-          className="p-2 w-full"
+          className="p-2 w-2/3"
           onChange={(date) => setCheckIn(date as Date)}
           selectsStart
           startDate={checkIn}
@@ -92,8 +94,9 @@ const SearchBar = () => {
           maxDate={maxDate}
         />
       </div>
-      <div className="flex bg-white items-center">
-        <p className="font-semibold px-3">CheckOut: </p>
+      <div className="flex bg-white rounded-3xl  items-center">
+        <p className="font-semibold px-2">CheckOut: </p>
+        <SlCalender className="text-xl" />
         <DatePicker 
           selected={checkOut}
           onChange={(date) => setCheckOut(date as Date)}
@@ -102,19 +105,19 @@ const SearchBar = () => {
           endDate={checkOut}
           minDate={minDate}
           maxDate={maxDate}
-          className="p-2 w-full"
+          className="p-2 w-2/3"
         />
       </div>
       <div className="flex gap-1">
         <button
           onClick={handleSubmit}
-          className="w-2/3 bg-blue-600 text-white h-full p-2 font-bold text-xl hover:bg-blue-500"
+          className="w-2/3 bg-blue-600 rounded-3xl text-white h-full p-2 font-bold text-xl hover:bg-blue-500"
         >
           Search
         </button>
         <button 
           onClick={handleClear}
-          className="w-1/3 bg-red-600 text-white h-full p-2 font-bold text-xl hover:bg-red-500"
+          className="w-1/3 bg-red-600 rounded-3xl text-white h-full p-2 font-bold text-xl hover:bg-red-500"
         >
           Clear
         </button>

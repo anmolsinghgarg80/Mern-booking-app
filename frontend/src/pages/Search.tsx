@@ -119,7 +119,7 @@ const Search = () => {
         </div>
 
         {/* Main content area */}
-        <div className="flex flex-col flex-grow gap-2">
+        <div className="flex flex-col flex-grow gap-5">
           {hotelData?.data.map((hotel) => (
             <SearchResultCard key={hotel._id} hotel={hotel} />
           ))}
