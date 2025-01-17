@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
   return (
       <div className="bg-blue-800 py-6">
-      <div className="container mx-auto flex justify-between">
-        <span className="text-3xl text-white font-bold tracking-tight">
+      <div className="flex justify-between">
+        <span className="text-xl text-white font-bold tracking-tight">
           <Link to="/">MernHolidays.com</Link>
         </span>
-        <span className='text-xl text-white font-bold flex gap-4 tracking-tighter'>
+        <span className='text-sm text-white font-bold flex gap-2 justify-around tracking-tighter'>
           <p>Privary Policy</p>
           <p>Terms of Service</p>
         </span>

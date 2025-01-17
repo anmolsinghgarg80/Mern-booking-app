@@ -1,7 +1,18 @@
 import {Request, Response}  from "express";
 import Hotel from "../models/hotel";
 import { HotelSearchResponse } from "../shared/types";
-import { hotelvalidateSchema } from "../middlewares/validate";
+
+export const getHomeHotels = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const hotels = await Hotel.find().sort("-lastUpdated");
+    res.json(hotels);
+    
+  } catch (error) {
+    console.log("Error :", error);
+    res.status(500).json({message: "Error getting Hotels"});
+    return;
+  }
+}
 
 export const getHotel = async(req: Request, res: Response):Promise<void> => {
 

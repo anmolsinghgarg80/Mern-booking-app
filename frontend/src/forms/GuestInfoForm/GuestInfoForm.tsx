@@ -39,6 +39,8 @@ const GuestInfoForm = ({hotelId, pricePerNight} : Props) => {
 
   const minDate = new Date();
   const maxDate = new Date();
+  const nextDate = new Date();
+  nextDate.setDate(nextDate.getDate() + 1);
   maxDate.setFullYear(maxDate.getFullYear() + 1);
 
   // saves the default value before redirecting
@@ -91,7 +93,7 @@ const GuestInfoForm = ({hotelId, pricePerNight} : Props) => {
                 placeholderText="Check-Out-Date"
                 startDate={checkIn}
                 endDate={checkOut}
-                minDate={minDate}
+                minDate={nextDate}
                 maxDate={maxDate}
                 wrapperClassName="w-3/4"
               />

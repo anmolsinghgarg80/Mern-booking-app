@@ -116,6 +116,8 @@ export const getUser = async (req: Request, res: Response): Promise<void> => {
       res.status(400).json({message: "User not found"});
       return;
     }
+    res.status(200).json(user);
+    return;
 
   }catch(error) {
     console.log(error);
