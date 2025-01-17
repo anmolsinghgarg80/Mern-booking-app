@@ -1,6 +1,21 @@
 import {Request, Response}  from "express";
 import Hotel from "../models/hotel";
 import { HotelSearchResponse } from "../shared/types";
+import { hotelvalidateSchema } from "../middlewares/validate";
+
+export const getHotel = async(req: Request, res: Response):Promise<void> => {
+
+  const id= req.params.id.toString();
+  try{
+
+    const hotel = await Hotel.findById(id);
+    res.json(hotel);
+
+  }catch(error){
+    console.log("Error :", error);
+    res.status(404).json({message:"Error fetching hotel"});
+  };
+};
 
 export const searchHotels = async ( req: Request, res: Response ): Promise<void> => {
   try{

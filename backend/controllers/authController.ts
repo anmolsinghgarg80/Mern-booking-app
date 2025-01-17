@@ -104,4 +104,21 @@ export const logout = (req: Request, res: Response) => {
   res.clearCookie("auth_token")
   .status(200)
   .json({success: true, message: 'logged out succesfully'});
+};
+
+export const getUser = async (req: Request, res: Response): Promise<void> => {
+  const userId = req.userId;
+
+  try{
+    const user = await User.findById(userId).select("-password");
+
+    if(!user) {
+      res.status(400).json({message: "User not found"});
+      return;
+    }
+
+  }catch(error) {
+    console.log(error);
+    res.status(500).json({message: "something went wrong"});
+  }
 }

@@ -101,8 +101,8 @@ const Search = () => {
         <div className="flex justify-between items-center mb-5">
           <span className="text-xl font-bold">
             {hotelData?.pagination.total !== 1 
-              ? `${hotelData?.pagination.total} Hotels found` 
-              : `${hotelData?.pagination.total} Hotel found`}  
+              ? `${hotelData?.pagination.total || ""} Hotels found` 
+              : `${hotelData?.pagination.total || ""} Hotel found`}  
             {search.destination? ` in ${search.destination}` : ""}
           </span>
 
